@@ -28,3 +28,17 @@ DATA = {
 #     'ингредиент2': количество2,
 #   }
 # }
+
+
+def dish_calculator(requests, dish_name):
+    servings = int(requests.GET.get('servings', 1))
+    ordered_dish = {}
+    for dish, ingregients in DATA.items():
+        if dish == dish_name:
+            for ingregient, amount in ingregients.items():
+                ordered_dish[ingregient] = amount * servings
+    context = {
+            'recipe': ordered_dish
+        }
+
+    return render(requests, 'calculator/index.html', context)
