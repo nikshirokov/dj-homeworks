@@ -13,6 +13,20 @@ jobs:
       PG_PASSWORD: ${{ secrets.PG_PASSWORD }}
       PG_HOST: ${{ secrets.PG_HOST }}
       PG_PORT: ${{ secrets.PG_PORT }}
+    services:
+      postgres_main:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: ${{ env.PG_USER }}
+          POSTGRES_PASSWORD: ${{ env.PG_PASSWORD }}
+          POSTGRES_DB: ${{ env.PG_NAME }}
+        ports:
+          - 5432:5432
+        options:
+          --health-cmd pg_isready 
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - name: Проверка изменений
         uses: actions/checkout@v2
