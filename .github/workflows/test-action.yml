@@ -14,15 +14,16 @@ jobs:
                         PG_HOST: ${{ secrets.PG_HOST }}
                         PG_PORT: ${{ secrets.PG_PORT }}
                 steps:
-                       -name: Проверка изменений
-                        uses: actions/checkout@v2
+                  - name: Проверка изменений
+                    uses: actions/checkout@v2
 
-                       -name: Установка Python
-                        uses: actions/setup-python@v5
-                        with:
-                                python-version: 3.12
-                       -name: Установка зависимостей
-                        run: pip install -r requirements.txt
+                  - name: Установка Python
+                    uses: actions/setup-python@v5
+                    with:
+                      python-version: 3.12
+                  
+                  - name: Установка зависимостей
+                    run: pip install -r requirements.txt
 
-                       -name: Линтер
-                        run: flake8 webpython --exclude migrations --ignore E501,F401,E302,W293,W391,W292
+                  - name: Линтер
+                    run: flake8 webpython --exclude migrations --ignore E501,F401,E302,W293,W391,W292
