@@ -23,7 +23,7 @@ jobs:
           python-version: 3.12
                   
       - name: Установка зависимостей
-        run: pip install -r /root/dj-homeworks/3.2-crud/stocks_products/requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Линтер
         run: flake8 webpython --exclude migrations --ignore E501,F401,E302,W293,W391,W292
