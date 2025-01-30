@@ -27,3 +27,13 @@ jobs:
 
       - name: Линтер
         run: flake8 webpython --exclude migrations --ignore E902,E501,F401,E302,W293,W391,W292
+
+      - name: tests
+        run: python 3.2-crud/stocks_products/manage.py test logistic
+        env:
+          PG_NAME: ${{ env.PG_NAME }}
+          PG_USER: ${{ env.PG_USER }}
+          PG_PASSWORD: ${{ env.PG_PASSWORD }}
+          PG_HOST: ${{ env.PG_HOST }}
+          PG_PORT: ${{ env.PG_PORT }}
+
