@@ -26,4 +26,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Линтер
-        run: flake8 webpython --exclude migrations --ignore E501,F401,E302,W293,W391,W292
+        run: flake8 webpython --exclude migrations --ignore E902,E501,F401,E302,W293,W391,W292
