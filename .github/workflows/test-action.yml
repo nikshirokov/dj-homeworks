@@ -61,4 +61,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script:
-            pwd 
+            pwd
+            ls 
