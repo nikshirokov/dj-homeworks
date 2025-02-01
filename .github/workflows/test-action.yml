@@ -60,8 +60,8 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          script:
-            cd ~/dj-homeworks/
+          script: |
+            cd /root/dj-homeworks/3.2-crud/stocks_products
             git pull
             sudo systemctl restart gunicorn
              
