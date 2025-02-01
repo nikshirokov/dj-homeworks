@@ -5,7 +5,7 @@ from logistic.models import Product, Stock
 from logistic.serializers import ProductSerializer, StockSerializer
 
 def index(request):
-    return HttpResponse("Hello cicd")
+    return HttpResponse("Hello cicd v2")
 
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
