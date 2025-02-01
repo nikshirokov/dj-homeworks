@@ -50,4 +50,17 @@ jobs:
           PG_PASSWORD: ${{ env.PG_PASSWORD }}
           PG_HOST: ${{ env.PG_HOST }}
           PG_PORT: ${{ env.PG_PORT }}
-
+    deploy:
+        runs-on: ubuntu-latest
+        needs: testing
+        steps:
+          - name: deploy
+            uses: appleboy/ssh-action@master
+            with:
+              host: ${{ secrets.HOST }}
+              username: ${{ secrets.USERNAME }}
+              password: ${{ secrets.PASSWORD }}
+              script:
+                cd /root/dj-homeworks/3.2-crud/stocks_products
+                git pull
+                sudo systemctl restart gunicorn 

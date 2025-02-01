@@ -1,9 +1,11 @@
 from rest_framework.filters import SearchFilter
 from rest_framework.viewsets import ModelViewSet
-
+from django.http import HttpResponse
 from logistic.models import Product, Stock
 from logistic.serializers import ProductSerializer, StockSerializer
 
+def index(request):
+    return HttpResponse("Hello cicd")
 
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
