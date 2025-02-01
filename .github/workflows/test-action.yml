@@ -61,5 +61,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script:
-            pwd
-            ls 
+            git pull
+            sudo systemctl restart gunicorn
+             
