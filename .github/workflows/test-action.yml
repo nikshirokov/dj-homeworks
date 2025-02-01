@@ -61,6 +61,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script:
-                cd /root/dj-homeworks/3.2-crud/stocks_products
+                cd /root/dj-homeworks/
                 git pull
                 sudo systemctl restart gunicorn 
